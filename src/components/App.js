@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Navbar from './navbar';
 
 class App extends Component {
-    render () {
+    render() {
         return (
-            <div>
-                Welcome to my fantasy app.
+            <div className="container-fluid">
+                <Navbar />
             </div>
         );
     };
