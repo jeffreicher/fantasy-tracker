@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../assets/css/gamesContainer.css';
+import Scoreboard from './gameScoreboard';
 
 class GamesContainer extends Component {
     render() {
@@ -15,6 +16,7 @@ class GamesContainer extends Component {
                     <div>{today}</div>
                     <button type="button" className="btn btn-primary">Next</button>                    
                 </div>
+                <Scoreboard />
             </div>
         );
     };
