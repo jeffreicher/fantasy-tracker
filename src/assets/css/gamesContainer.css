@@ -1,0 +1,12 @@
+.gamesContainer {
+    height: 80vh;
+    width: 80vw;
+    margin-top: 5vh;
+    background-color: gray;
+}
+
+.dateContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
