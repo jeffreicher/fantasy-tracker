@@ -9,7 +9,6 @@ class Navbar extends Component {
                     <a className="nav-item nav-link" href="">Scoreboard</a>
                     <a className="nav-item nav-link"href="">Standings</a>                    
                 </div>
-
             </nav>
         );
     };
