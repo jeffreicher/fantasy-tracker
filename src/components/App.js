@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Navbar from './navbar';
-import GamesContainer from './gamesContainer';
+import GamesComponent from './gamesComponent';
 
 class App extends Component {
     render() {
         return (
             <div className="container-fluid">
                 <Navbar />
-                <GamesContainer />
+                <GamesComponent />
             </div>
         );
     };
