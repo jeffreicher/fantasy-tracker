@@ -18,7 +18,7 @@ export function retrieveGames(day) {
             dispatch(gamesAction(response))
         }).catch(err => {
             console.log('error', err);
-            dispatch(renderError(err));
+            // dispatch(renderError(err));
         })
     }
 }
