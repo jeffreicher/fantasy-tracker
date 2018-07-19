@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import gamesComponent from '../components/gamesComponent';
+import GamesComponent from '../components/gamesComponent';
+import { retrieveGames } from '../actions';
 
 class GamesContainer extends Component {
     renderGames() {
@@ -10,7 +11,7 @@ class GamesContainer extends Component {
                 hour: '2-digit',
                 minute: '2-digit'
             });
-            return (<gamesComponent key={game.gameId} game={game} startTime={startTime} />)
+            return (<GamesComponent key={game.gameId} game={game} startTime={startTime} />)
         });
     };
 
@@ -29,4 +30,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(GamesContainer);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        gameData: () => dispatch(retrieveGames())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamesContainer);
