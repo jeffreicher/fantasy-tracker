@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Navbar from './navbar';
-import GamesComponent from './gamesComponent';
+import Score from '../container/scoreContainer';
 
 class App extends Component {
     render() {
         return (
             <div className="container-fluid">
                 <Navbar />
-                <GamesComponent />
+                <Score />
             </div>
         );
     };

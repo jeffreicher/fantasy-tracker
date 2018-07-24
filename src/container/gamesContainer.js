@@ -30,11 +30,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        gameData: () => dispatch(retrieveGames())
-    }
-}
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         gameData: () => dispatch(retrieveGames())
+//     }
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(GamesContainer);
+export default connect(mapStateToProps)(GamesContainer);

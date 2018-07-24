@@ -1,4 +1,4 @@
-import { FETCH_GAMES } from '../actions/index';
+import { FETCH_GAMES } from '../actions';
 
 export default function gamesData(state = [], action){
     switch (action.type) {

@@ -14,7 +14,7 @@ class GamesContainer extends Component {
                 <div className="dateContainer">
                     <button type="button" className="btn btn-primary">Previous</button>
                     <div>{today}</div>
-                    <button type="button" className="btn btn-primary">Next</button>                    
+                    <button type="button" className="btn btn-primary">Next</button>
                 </div>
                 <Scoreboard />
             </div>

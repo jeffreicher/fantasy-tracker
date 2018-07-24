@@ -47,7 +47,7 @@ app.get('/calendar', (req,res) => {
     })
 });
 
-app.get('/standings', (req,res) => {
+app.get('/', (req,res) => {
     nba.data.conferenceStandings().then(data => {
       res.status(200).json({"Success": true, "games": data})
     }).catch(err => {
