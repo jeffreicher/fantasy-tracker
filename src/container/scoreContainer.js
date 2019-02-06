@@ -1,61 +1,71 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { retrieveGames } from '../actions';
-import GamesContainer from '../components/gamesComponent';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { retrieveGames } from '../actions'
+import GamesContainer from '../components/gamesComponent'
 
 class Score extends Component {
-    componentDidMount() {
-        let { viewedDate } = this.props;
-        this.props.retrieveGames(viewedDate);
-        console.log(viewedDate);
-    }
+  state = {
+    games: []
+  }
+  componentWillMount() {
+    console.log('hello')
+  }
 
-    componentWillReceiveProps(nextProps) {
-        let { viewedDate } = this.props;
-        if (viewedDate === nextProps.viewedDate) {
-            return false;
-        } else {
-            this.props.fetchGames(nextProps.viewedDate);
-            return true;
-        }
+  async componentDidMount() {
+    // let { viewedDate } = this.props
+    await retrieveGames()
+    console.log('didmount')
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('entered')
+    let { viewedDate } = this.props
+    if (viewedDate === nextProps.viewedDate) {
+      return false
+    } else {
+      console.log('entered')
+      this.props.fetchGames(nextProps.viewedDate)
+      return true
     }
-    render() {
-        let { games } = this.props;
-        if (!games) {
-            return (
-                <div>
-                    No games for today.
-                </div>
-            )
-        }
-        if (games.length === 0 || this.props.noGames) {
-            return (
-                <div>
-                    NO GAMES FOR TODAY.
-                </div>
-            )
-        }
-        return (
-            <div>
-                <GamesContainer />
-            </div>
-        )
+  }
+  render() {
+    let { games } = this.props
+    if (!games) {
+      return <div>No games for today.</div>
     }
+    if (games.length === 0 || this.props.noGames) {
+      return <div>NO GAMES FOR TODAY.</div>
+    }
+    return (
+      <div>
+        <GamesContainer />
+      </div>
+    )
+  }
 }
 
-const mapStateToProps = (state) => {
-    console.log(state);
-    return {
-        games: state.gamesData.games,
-        viewedDate: state.setDate.viewedDate,
-        noGames: state.gamesData.noGames
-    };
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    games: state.games
+    // viewedDate: state.setDate.viewedDate,
+    // noGames: state.gamesData.noGames
+  }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchGames: (day) => dispatch(retrieveGames(day))
-    }
+const mapDispatchToProps = dispatch => {
+  let today = new Date()
+  let day = today.getDate()
+  let month = today.getMonth() + 1
+  let year = today.getFullYear()
+  today = `${month} / ${day} / ${year}`
+  console.log(today)
+  return {
+    fetchGames: today => dispatch(retrieveGames(today))
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Score);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Score)
