@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { retrieveGames } from '../actions'
 import GamesContainer from '../components/gamesComponent'
+import moment from 'moment'
 
 class Score extends Component {
   state = {
@@ -13,8 +14,10 @@ class Score extends Component {
 
   async componentDidMount() {
     // let { viewedDate } = this.props
-    let result = await retrieveGames()
-    console.log(result)
+    let today = new Date()
+    today = moment(today).format('MM-DD-YYYY')
+    let result = await retrieveGames(today)
+    console.log('result', result)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -55,10 +58,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   let today = new Date()
-  let day = today.getDate()
-  let month = today.getMonth() + 1
-  let year = today.getFullYear()
-  today = `${month} / ${day} / ${year}`
+  today = moment(today).format('MM/DD/YYYY')
   console.log(today)
   return {
     fetchGames: today => dispatch(retrieveGames(today))
@@ -66,6 +66,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Score)

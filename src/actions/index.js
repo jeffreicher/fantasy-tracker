@@ -13,15 +13,24 @@ function gamesAction(response) {
 
 export async function retrieveGames(day) {
   // let games = `${ROOT_URL}/games/${day}`
-  console.log('entered')
-
-  const response = await fetch('http://localhost:2424/scoreboard')
-  const body = await response.json()
-
-  if (response.status !== 200) {
-    throw Error(body.message)
+  console.log('action', day)
+  // let encoded = encodeURIComponent(day)
+  // console.log(encoded)
+  try {
+    const response = await fetch(
+      `http://localhost:2424/scoreboard?date=${day}`,
+      {
+        method: 'GET'
+        // body: JSON.stringify({
+        //   day
+        // })
+      }
+    )
+    console.log(response)
+    return response.json()
+  } catch (e) {
+    console.log(e)
   }
-  return body
 
   // await axios
   //   .get('http://localhost:2424/scoreboard')

@@ -21,11 +21,13 @@ app.listen(PORT, () => {
 })
 
 app.get('/scoreboard', async function(req, res) {
-  let response = await scoreboard()
+  // let querystring = window.location.search.substring(1)
+  // console.log(querystring)
+  console.log(req.query.date)
+  let response = await scoreboard(req.query.date)
   // return response
   res.status(200)
-  res.json({ response: response })
-  res.end()
+  return res.json({ response })
 })
 
 module.exports = app
