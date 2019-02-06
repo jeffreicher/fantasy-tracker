@@ -24,7 +24,7 @@ app.get('/scoreboard', async function(req, res) {
   let response = await scoreboard()
   // return response
   res.status(200)
-  res.json({ message: 'hello', response: response })
+  res.json({ response: response })
   res.end()
 })
 

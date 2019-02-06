@@ -13,8 +13,8 @@ class Score extends Component {
 
   async componentDidMount() {
     // let { viewedDate } = this.props
-    await retrieveGames()
-    console.log('didmount')
+    let result = await retrieveGames()
+    console.log(result)
   }
 
   componentWillReceiveProps(nextProps) {
