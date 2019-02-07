@@ -16,23 +16,25 @@ class Score extends Component {
     // let { viewedDate } = this.props
     let today = new Date()
     today = moment(today).format('MM-DD-YYYY')
-    let result = await retrieveGames(today)
-    console.log('result', result)
+    // let result = await retrieveGames(today)
+    // console.log('result', result)
+    await this.props.dispatchRetrieveGames(today)
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log('entered')
-    let { viewedDate } = this.props
-    if (viewedDate === nextProps.viewedDate) {
-      return false
-    } else {
-      console.log('entered')
-      this.props.fetchGames(nextProps.viewedDate)
-      return true
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log('entered')
+  //   let { viewedDate } = this.props
+  //   if (viewedDate === nextProps.viewedDate) {
+  //     return false
+  //   } else {
+  //     console.log('entered')
+  //     this.props.fetchGames(nextProps.viewedDate)
+  //     return true
+  //   }
+  // }
   render() {
     console.log(this.state)
+    console.log(this.props)
     let { games } = this.props
     if (!games) {
       return <div>No games for today.</div>
@@ -57,11 +59,11 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  let today = new Date()
-  today = moment(today).format('MM/DD/YYYY')
-  console.log(today)
+  // let today = new Date()
+  // today = moment(today).format('MM/DD/YYYY')
+  // console.log(today)
   return {
-    fetchGames: today => dispatch(retrieveGames(today))
+    dispatchRetrieveGames: today => dispatch(retrieveGames(today))
   }
 }
 
