@@ -32,6 +32,7 @@ class Score extends Component {
     }
   }
   render() {
+    console.log(this.state)
     let { games } = this.props
     if (!games) {
       return <div>No games for today.</div>
@@ -48,7 +49,6 @@ class Score extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
     games: state.games
     // viewedDate: state.setDate.viewedDate,
@@ -66,6 +66,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Score)

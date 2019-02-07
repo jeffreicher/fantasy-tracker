@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import '../assets/css/gamesComponent.css'
 // import Scoreboard from './gameScoreboard';
 
-class GamesContainer extends Component {
+class GamesComponent extends Component {
   render() {
     let today = new Date()
     let day = today.getDate()
@@ -26,4 +26,4 @@ class GamesContainer extends Component {
   }
 }
 
-export default GamesContainer
+export default GamesComponent
