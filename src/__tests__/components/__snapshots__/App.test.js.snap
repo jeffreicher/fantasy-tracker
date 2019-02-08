@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests App component matches snapshot 1`] = `
+<div
+  className="container-fluid"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-light bg-light justify-content-between"
+  >
+    <a
+      className="navbar-brand"
+      href="#"
+    >
+      Fantasy Tracker
+    </a>
+    <div
+      className="navbar-nav"
+    >
+      <a
+        className="nav-item nav-link"
+        href=""
+      >
+        Scoreboard
+      </a>
+      <a
+        className="nav-item nav-link"
+        href=""
+      >
+        Standings
+      </a>
+    </div>
+  </nav>
+  <div>
+    NO GAMES FOR TODAY.
+  </div>
+</div>
+`;

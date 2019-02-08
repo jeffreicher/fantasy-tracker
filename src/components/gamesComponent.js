@@ -20,7 +20,6 @@ class GamesComponent extends Component {
             Next
           </button>
         </div>
-        {/* <Scoreboard /> */}
       </div>
     )
   }

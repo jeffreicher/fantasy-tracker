@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk'
 import reducers from './reducers'
 import ReduxPromise from 'redux-promise'
 import './assets/css/index.css'
-import App from './components/app'
+import App from './components/App'
 import registerServiceWorker from './helpers/registerServiceWorker'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 

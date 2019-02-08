@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests Score Container component matches Score Container snapshot 1`] = `
+<div>
+  NO GAMES FOR TODAY.
+</div>
+`;

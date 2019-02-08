@@ -19,6 +19,6 @@ describe('tests games fetch call', () => {
   it('should return values', async () => {
     const response = await retrieveGames()
     console.log(response)
-    expect(response.date).toBe('12-12-2012')
+    expect(response.payload.date).toBe('12-12-2012')
   })
 })
