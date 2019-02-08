@@ -1,24 +1,18 @@
-import axios from 'axios';
+import axios from 'axios'
 
-export const FETCH_GAMES = 'FETCH_GAMES';
+export const FETCH_GAMES = 'FETCH_GAMES'
 
-const ROOT_URL = 'https://localhost:2424/api/nba';
+const ROOT_URL = 'http://localhost:2424'
 
-function gamesAction(response) {
+export async function retrieveGames(day) {
+  try {
+    const response = await fetch(`${ROOT_URL}/scoreboard?date=${day}`)
+    // console.log(await response.json())
     return {
-        type: FETCH_GAMES,
-        payload: response
+      type: FETCH_GAMES,
+      payload: await response.json()
     }
-}
-
-export function retrieveGames(day) {
-    let games = `${ROOT_URL}/games/${day}`;
-    return (dispatch) => {
-        return axios.get(games).then(response => {
-            dispatch(gamesAction(response))
-        }).catch(err => {
-            console.log('error', err);
-            // dispatch(renderError(err));
-        })
-    }
+  } catch (e) {
+    console.log(e)
+  }
 }
